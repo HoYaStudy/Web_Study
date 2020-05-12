@@ -51,6 +51,10 @@ Aliased as `i`, `isntall`, `add`.
 
 `--save-dev` option을 넣으면 개발 전용으로 추가한다.
 
+* Python이 필요하다.
+* Windows Build Tools가 필요하다.
+  > $ npm install windows-build-tools
+
 ## Show Installed Package List
 
 > $ npm ls [-g]
