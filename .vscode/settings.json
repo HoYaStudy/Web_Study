@@ -1,0 +1,10 @@
+{
+  "prettier.packageManager": "yarn",
+  "prettier.singleQuote": true,
+  "[javascript]": {
+    "editor.formatOnSave": true,
+  },
+  "[typescript]": {
+    "editor.formatOnSave": true,
+  }
+}
