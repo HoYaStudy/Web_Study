@@ -24,10 +24,10 @@
   const num_var3 = 3.14;
   console.log(`>> value: ${num_var3}, type: ${typeof num_var3}`);
 
-  const num_var4 = 1 / 0; // Infinity
+  const num_var4 = 1 / 0;   // Infinity
   console.log(`>> value: ${num_var4}, type: ${typeof num_var4}`);
 
-  const num_var5 = -1 / 0; // -Infinity
+  const num_var5 = -1 / 0;  // -Infinity
   console.log(`>> value: ${num_var5}, type: ${typeof num_var5}`);
 
   // NaN ---------------------------------------------------------------------//
@@ -46,15 +46,15 @@
   `Number.isNaN` returns true only when current value is NaN
   */
 
-  console.log(`>> NaN || true => ${NaN || true}`);    // true
-  console.log(`>> NaN || false => ${NaN || false}`);  // false
+  console.log(`>> NaN || true => ${NaN || true}`); // true
+  console.log(`>> NaN || false => ${NaN || false}`); // false
 
-  console.log(`>> NaN === NaN => ${NaN === NaN}`);    // false
+  console.log(`>> NaN === NaN => ${NaN === NaN}`); // false
 
   // undefined ---------------------------------------------------------------//
   console.log("Data Type: Undefined");
 
-  console.log(`>> type: ${typeof test_var}`);   // Not yet defined
+  console.log(`>> type: ${typeof test_var}`); // Not yet defined
 
   let undefined_var;
   console.log(`>> value: ${undefined_var}, type: ${typeof undefined_var}`); // Not yet initialized
@@ -64,7 +64,7 @@
 
   console.log(`>> Translation to Number => ${new Number(undefined_var)}`);  // NaN
 
-  undefined_var = undefined_var || 7;   // This assigns value 7 to undefined_var if not yet defined.
+  undefined_var = undefined_var || 7;                                       // This assigns value 7 to undefined_var if not yet defined.
   console.log(`>> value: ${undefined_var}, type: ${typeof undefined_var}`); // Not yet initialized
 
   // null --------------------------------------------------------------------//
@@ -78,16 +78,16 @@
   console.log(
     `>> Number(null) == Number(undefined) => ${new Number(null) == new Number(undefined)
     }`
-  ); // false
+  );                                                              // false
 
   console.log(`>> Translation to Number => ${new Number(null_var)}`); // 0
 
   // Reference
-  // * https://2ality.com/2013/10/typeof-null.html
+  // > https://2ality.com/2013/10/typeof-null.html
 
   // NaN vs null vs undefined ------------------------------------------------//
   console.log("Data Type: NaN vs Null vs Undefined");
 
-  console.log(`>> NaN == null => ${NaN == null}`); // false
-  console.log(`>> NaN == undefined => ${NaN == undefined}`); // false
+  console.log(`>> NaN == null => ${NaN == null}`);            // false
+  console.log(`>> NaN == undefined => ${NaN == undefined}`);  // false
 }

@@ -1,6 +1,6 @@
 "use strict";
 {
-  // Mutable Variable ----------------------------------------------------------//
+  // Mutable Variable --------------------------------------------------------//
   console.log("Mutable Variable");
 
   let mutable_var = "mutable";
@@ -9,7 +9,7 @@
   mutable_var = "I can be modified.";
   console.log(`>> ${mutable_var}`);
 
-  // Immutable Variable --------------------------------------------------------//
+  // Immutable Variable ------------------------------------------------------//
   console.log("Immutable Variable");
 
   const immutable_var = "immutable";
@@ -17,7 +17,7 @@
 
   // immutable_var = "I can NOT be modified."    // > Error!!
 
-  // Variable Hoisting ---------------------------------------------------------//
+  // Variable Hoisting -------------------------------------------------------//
   console.log("Variable Hoisting");
 
   console.log(`>> ${hoisting_var}`);  // This isn't an error even though there is no definition of this variable yet.
@@ -27,4 +27,12 @@
 
   var hoisting_var = "hoisting";
   console.log(`>> ${hoisting_var}`);
+
+  // var vs let vs const -----------------------------------------------------//
+
+  // Type  | Scope    | Hoisting | Mutable
+  // ------+----------+----------+----------
+  // var     Function   Hoisting   Mutable
+  // let     Block      Hoisting   Mutable
+  // const   Block      Hoisting   Immutable
 }
