@@ -20,10 +20,10 @@
   // Variable Hoisting -------------------------------------------------------//
   console.log("Variable Hoisting");
 
-  console.log(`>> ${hoisting_var}`);  // This isn't an error even though there is no definition of this variable yet.
+  console.log(`>> ${hoisting_var}`); // This isn't an error even though there is no definition of this variable yet.
 
-  hoisting_var = "initialization";    // This variable is not yet defined but can be used.
-  console.log(`>> ${hoisting_var}`);  // This isn't an error even though there is no definition of this variable yet.
+  hoisting_var = "initialization"; // This variable is not yet defined but can be used.
+  console.log(`>> ${hoisting_var}`); // This isn't an error even though there is no definition of this variable yet.
 
   var hoisting_var = "hoisting";
   console.log(`>> ${hoisting_var}`);

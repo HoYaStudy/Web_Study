@@ -29,9 +29,9 @@
   // Comparison Operators ----------------------------------------------------//
   console.log("Operator: Comparison");
 
-  console.log(`>> 3 == '3' => ${3 == "3"}`);    // Loose comparison with type conversion
+  console.log(`>> 3 == '3' => ${3 == "3"}`); // Loose comparison with type conversion
   console.log(`>> 3 != '3' => ${3 != "3"}`);
-  console.log(`>> 3 === '3' => ${3 === "3"}`);  // Strict comparison without type conversion
+  console.log(`>> 3 === '3' => ${3 === "3"}`); // Strict comparison without type conversion
   console.log(`>> 3 !== '3' => ${3 !== "3"}`);
   console.log(`>> 3 > 4 => ${3 > 4}`);
   console.log(`>> 3 >= 4 => ${3 >= 4}`);
@@ -95,9 +95,9 @@
   */
 
   // Nullish Coalescing Operator
-  console.log(`>> null ?? 3 => ${null ?? 3}`);            // 3
-  console.log(`>> undefined ?? 3 => ${undefined ?? 3}`);  // 3
-  console.log(`>> 1 ?? 3 => ${1 ?? 3}`);                  // 1
+  console.log(`>> null ?? 3 => ${null ?? 3}`); // 3
+  console.log(`>> undefined ?? 3 => ${undefined ?? 3}`); // 3
+  console.log(`>> 1 ?? 3 => ${1 ?? 3}`); // 1
 
   // String Operators --------------------------------------------------------//
   console.log("Operator: String");

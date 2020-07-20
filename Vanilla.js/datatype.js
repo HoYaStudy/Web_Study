@@ -24,10 +24,10 @@
   const num_var3 = 3.14;
   console.log(`>> value: ${num_var3}, type: ${typeof num_var3}`);
 
-  const num_var4 = 1 / 0;   // Infinity
+  const num_var4 = 1 / 0; // Infinity
   console.log(`>> value: ${num_var4}, type: ${typeof num_var4}`);
 
-  const num_var5 = -1 / 0;  // -Infinity
+  const num_var5 = -1 / 0; // -Infinity
   console.log(`>> value: ${num_var5}, type: ${typeof num_var5}`);
 
   // NaN ---------------------------------------------------------------------//
@@ -36,11 +36,11 @@
   const nan_var1 = NaN;
   console.log(`>> value: ${nan_var1}, type: ${typeof nan_var1}`);
 
-  console.log(`>> ${isNaN(nan_var1)} vs ${Number.isNaN(nan_var1)}`);  // true vs true
+  console.log(`>> ${isNaN(nan_var1)} vs ${Number.isNaN(nan_var1)}`); // true vs true
   const nan_var2 = "hello";
-  console.log(`>> ${isNaN(nan_var2)} vs ${Number.isNaN(nan_var2)}`);  // true vs false
+  console.log(`>> ${isNaN(nan_var2)} vs ${Number.isNaN(nan_var2)}`); // true vs false
   const nan_var3 = "33";
-  console.log(`>> ${isNaN(nan_var3)} vs ${Number.isNaN(nan_var3)}`);  // false vs false
+  console.log(`>> ${isNaN(nan_var3)} vs ${Number.isNaN(nan_var3)}`); // false vs false
   /*
   `isNan` returns true when current value is NaN or when converted to a number.
   `Number.isNaN` returns true only when current value is NaN
@@ -59,12 +59,12 @@
   let undefined_var;
   console.log(`>> value: ${undefined_var}, type: ${typeof undefined_var}`); // Not yet initialized
 
-  console.log(`>> undefined || true => ${undefined || true}`);    // true
-  console.log(`>> undefined || false => ${undefined || false}`);  // false
+  console.log(`>> undefined || true => ${undefined || true}`); // true
+  console.log(`>> undefined || false => ${undefined || false}`); // false
 
-  console.log(`>> Translation to Number => ${new Number(undefined_var)}`);  // NaN
+  console.log(`>> Translation to Number => ${new Number(undefined_var)}`); // NaN
 
-  undefined_var = undefined_var || 7;                                       // This assigns value 7 to undefined_var if not yet defined.
+  undefined_var = undefined_var || 7; // This assigns value 7 to undefined_var if not yet defined.
   console.log(`>> value: ${undefined_var}, type: ${typeof undefined_var}`); // Not yet initialized
 
   // null --------------------------------------------------------------------//
@@ -73,12 +73,12 @@
   const null_var = null;
   console.log(`>> value: ${null_var}, type: ${typeof null_var}`);
 
-  console.log(`>> null == undefined => ${null == undefined}`);    // true, because both are the same as false.
-  console.log(`>> null === undefined => ${null === undefined}`);  // false, because they are different object.
+  console.log(`>> null == undefined => ${null == undefined}`); // true, because both are the same as false.
+  console.log(`>> null === undefined => ${null === undefined}`); // false, because they are different object.
   console.log(
     `>> Number(null) == Number(undefined) => ${new Number(null) == new Number(undefined)
     }`
-  );                                                              // false
+  ); // false
 
   console.log(`>> Translation to Number => ${new Number(null_var)}`); // 0
 
@@ -88,6 +88,6 @@
   // NaN vs null vs undefined ------------------------------------------------//
   console.log("Data Type: NaN vs Null vs Undefined");
 
-  console.log(`>> NaN == null => ${NaN == null}`);            // false
-  console.log(`>> NaN == undefined => ${NaN == undefined}`);  // false
+  console.log(`>> NaN == null => ${NaN == null}`); // false
+  console.log(`>> NaN == undefined => ${NaN == undefined}`); // false
 }
