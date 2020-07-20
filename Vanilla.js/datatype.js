@@ -76,7 +76,8 @@
   console.log(`>> null == undefined => ${null == undefined}`); // true, because both are the same as false.
   console.log(`>> null === undefined => ${null === undefined}`); // false, because they are different object.
   console.log(
-    `>> Number(null) == Number(undefined) => ${new Number(null) == new Number(undefined)
+    `>> Number(null) == Number(undefined) => ${
+      new Number(null) == new Number(undefined)
     }`
   ); // false
 
