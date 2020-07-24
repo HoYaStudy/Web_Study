@@ -29,8 +29,10 @@
   }
 
   const userStorage = new UserStorage();
-  const id = prompt("Enter you ID: ");
-  const password = prompt("Enter you password: ");
+  // const id = prompt("Enter you ID: ");
+  const id = "AAA";
+  // const password = prompt("Enter you password: ");
+  const password = "1111";
   userStorage.loginUser(
     id,
     password,
@@ -39,7 +41,7 @@
         user,
         (userWithRole) => {
           console.log(
-            `Hello ${userWithRole.name}, you have a ${userWithRole.role} role`
+            `>> Hello ${userWithRole.name}, you have a ${userWithRole.role} role`
           );
         },
         (error) => {
