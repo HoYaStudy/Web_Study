@@ -1,10 +1,21 @@
 {
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2020
+  },
   "env": {
     "browser": true,
     "es2020": true
   },
-  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
-  "rules": {
-    "linebreak-style": 0
-  }
+  "plugins": [
+    "prettier"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {}
 }

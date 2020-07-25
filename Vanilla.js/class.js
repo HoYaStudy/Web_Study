@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 {
   // class -------------------------------------------------------------------//
-  console.log('class');
+  console.log("class");
 
   class Shape {
     publicField = 0;
@@ -28,7 +28,7 @@
     }
 
     static display() {
-      return 'I am a static method';
+      return "I am a static method";
     }
   }
 
@@ -42,13 +42,13 @@
   shape1.height = 3;
   console.log(`>> `, shape1);
 
-  console.log(`>> Public: ${shape1.publicField}`);    // Can access
-  console.log(`>> Private: ${shape1.privateField}`);  // Can't access
+  console.log(`>> Public: ${shape1.publicField}`); // Can access
+  console.log(`>> Private: ${shape1.privateField}`); // Can't access
 
   console.log(`>> Static Method: ${Shape.display()}`);
 
   // extends -----------------------------------------------------------------//
-  console.log('class: extends');
+  console.log("class: extends");
 
   class Triangle extends Shape {
     getArea() {
