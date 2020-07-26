@@ -4,3 +4,6 @@
 # production
 **/build
 **/dist
+
+# log
+**/*.log
