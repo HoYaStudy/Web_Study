@@ -18,8 +18,9 @@
 
 * `TypeScript`: ms-vscode.vscode-typescript-next
 * `Live Server`: ritwickdey.liveserver
-* `ESLint` : dbaeumer.vscode-eslint
+* `ESLint`: dbaeumer.vscode-eslint
 * `Bracket Pair Colorizer2`: coenraads.bracket-pair-colorizer-2
+* `Auto Rename Tag`: formulahendry.auto-rename-tag
 
 ## Settings
 

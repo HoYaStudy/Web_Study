@@ -11,11 +11,13 @@
     "es2020": true
   },
   "plugins": [
-    "prettier"
+    "prettier",
+    "css-modules"
   ],
   "extends": [
     "eslint:recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:css-modules/recommended"
   ],
   "rules": {}
 }
