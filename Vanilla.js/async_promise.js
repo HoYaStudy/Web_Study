@@ -97,10 +97,10 @@
   }
 
   const userStorage = new UserStorage();
-  const id = prompt("Enter you ID: ");
-  // const id = "CCC";
-  const password = prompt("Enter you password: ");
-  // const password = "3333";
+  // const id = prompt("Enter you ID: ");
+  const id = "CCC";
+  // const password = prompt("Enter you password: ");
+  const password = "3333";
   userStorage
     .loginUser(id, password)
     .then(userStorage.getRoles)
