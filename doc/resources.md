@@ -59,5 +59,15 @@
 
 ## Reference
 
+### Font
+
 - [Google Fonts](https://fonts.google.com/)
 - [Font Awesome](https://fontawesome.com/)
+
+### Video
+
+- [Pexels](https://www.pexels.com/)
+- [Unsplash](https://unsplash.com/)
+- [Velosofy](https://www.velosofy.com/)
+- [Videezy](https://www.videezy.com/)
+- [Videvo](https://www.videvo.net/)
