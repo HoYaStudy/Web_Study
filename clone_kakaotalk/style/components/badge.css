@@ -1,0 +1,42 @@
+.badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  color: white;
+  background-color: tomato;
+  font-weight: 600;
+}
+
+.red-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background-color: tomato;
+}
+
+.exclamation-border {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  border-radius: 10px;
+  background-color: tomato;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.exclamation {
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  color: tomato;
+  background-color: white;
+  text-align: center;
+  position: relative;
+}

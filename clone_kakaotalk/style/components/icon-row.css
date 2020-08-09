@@ -1,0 +1,32 @@
+.icon-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.icon-row__icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.icon-row__icon i {
+  font-size: 35px;
+}
+
+.icon-row__icon span {
+  margin-top: 18px;
+  text-align: center;
+  line-height: 20px;
+}
+
+.icon-row__icon__talk-drive {
+  left: 56px;
+  bottom: 74px;
+}
+
+.icon-row__icon-empty {
+  width: 70px;
+  height: 70px;
+}

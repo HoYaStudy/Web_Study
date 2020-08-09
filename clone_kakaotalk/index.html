@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/style.css" />
+    <script
+      defer
+      src="https://kit.fontawesome.com/032ad49064.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Clone: KakaoTalk</title>
+  </head>
+  <body>
+    <div class="status-bar">
+      <div class="status-bar__column">
+        <span>No Service</span>
+        <i class="fas fa-wifi"></i>
+      </div>
+      <div class="status-bar__column">
+        <span>20:25</span>
+      </div>
+      <div class="status-bar__column">
+        <span>73%</span>
+        <i class="fas fa-battery-three-quarters fa-lg"></i>
+        <i class="fas fa-bolt"></i>
+      </div>
+    </div>
+
+    <header class="welcome-header">
+      <h1 class="welcome-header__title">Welcome to Clone KakaoTalk</h1>
+      <p class="welcome-header__text">
+        If you have a Kako Account,<br />
+        log in with your email or phone number.
+      </p>
+    </header>
+
+    <form id="login-form" action="friends.html" method="get">
+      <input name="username" type="text" placeholder="Email or phone number" />
+      <input name="password" type="password" placeholder="Password" />
+      <input type="submit" value="Log In" />
+      <input type="submit" value="Sign Up" />
+      <a href="#">Find Kakao Account or Password</a>
+    </form>
+
+    <div id="no-mobile">
+      <span>Your screen is too big!</span>
+    </div>
+  </body>
+</html>
