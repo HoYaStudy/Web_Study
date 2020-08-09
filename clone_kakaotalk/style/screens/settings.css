@@ -1,0 +1,49 @@
+.settings__setting {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  padding: 20px 0;
+  font-size: 18px;
+}
+
+.settings__setting:nth-child(3) {
+  border-color: rgba(0, 0, 0, 0.2);
+  padding-bottom: 35px;
+}
+
+.settings__setting:nth-child(4) {
+  padding-top: 35px;
+}
+
+.settings__setting:nth-child(9) i {
+  transform: rotate(180deg);
+}
+
+.settings__setting i {
+  margin-right: 20px;
+  opacity: 0.8;
+  width: 27.5px;
+  font-size: 22px;
+  text-align: center;
+  transition: color 0.3s ease-in-out;
+}
+
+.settings__setting-column {
+  display: flex;
+  align-items: center;
+}
+
+.settings__setting-column .badge {
+  margin-left: 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.settings__setting-column:last-child {
+  opacity: 0.5;
+}
+
+.settings__setting:hover i {
+  color: var(--yellow);
+}
