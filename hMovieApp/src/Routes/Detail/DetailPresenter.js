@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import Helmet from "react-helmet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar as fasStar } from "@fortawesome/free-solid-svg-icons";
+import {
+  faStar as fasStar,
+  faVideoSlash,
+  faCaretDown,
+} from "@fortawesome/free-solid-svg-icons";
 import { faStar as farStar } from "@fortawesome/free-regular-svg-icons";
+import { faImdb } from "@fortawesome/free-brands-svg-icons";
 import Loader from "../../Components/Loader";
 import Message from "../../Components/Message";
+import { useTitle } from "../../Components/useTitle";
 
 const Container = styled.div`
   position: relative;
@@ -54,6 +59,10 @@ const Title = styled.h3`
   font-size: 32px;
 `;
 
+const IMDB = styled.a`
+  margin-left: 5px;
+`;
+
 const ItemContainer = styled.div`
   display: flex;
   margin: 20px 0;
@@ -67,12 +76,33 @@ const Divider = styled.span`
   margin: 0 10px;
 `;
 
+const OverviewContainer = styled.div`
+  display: flex;
+  align-items: flex-start;
+  opacity: 0.7;
+`;
+
 const Overview = styled.p`
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: ${(props) => (props.clamp ? 3 : "none")};
   width: 50%;
   font-size: 12px;
   line-height: 1.5;
-  opacity: 0.7;
+  overflow: hidden;
 `;
+
+const OverviewButton = styled.div`
+  transform: ${(props) => (props.clamp ? "rotateX(0deg)" : "rotateX(180deg)")};
+  transition: transform 0.3s ease-in-out;
+`;
+
+const Subtitle = styled.div`
+  margin: 20px 0px;
+  font-size: 28px;
+`;
+
+const Video = styled.div``;
 
 const Vote = ({ rating }) => {
   let rows = [];
@@ -90,27 +120,33 @@ const Vote = ({ rating }) => {
   return rows;
 };
 
-const DetailPresenter = ({ result, loading, error }) =>
-  loading ? (
-    <>
-      <Helmet>
-        <title>Loading | hMovieApp</title>
-      </Helmet>
-      <Loader />
-    </>
+const DetailPresenter = ({ result, loading, error }) => {
+  const [clamp, setClamp] = useState(true);
+  const titleUpdater = useTitle("Loading | hMovieApp");
+
+  useEffect(() => {
+    loading
+      ? titleUpdater("Loading | hMovieApp")
+      : titleUpdater(
+          `${
+            result.original_title ? result.original_title : result.original_name
+          } | hMovieApp`
+        );
+  }, [loading, result, titleUpdater]);
+
+  return loading ? (
+    <Loader />
   ) : error ? (
     <Message text={error} color="#e74c3c"></Message>
   ) : (
     <Container>
-      <Helmet>
-        <title>
-          {result.original_title ? result.original_title : result.original_name}{" "}
-          | hMovieApp
-        </title>
-      </Helmet>
-      <Backdrop
-        bgImage={`https://image.tmdb.org/t/p/original${result.backdrop_path}`}
-      />
+      {result.hasOwnProperty("backdrop_path") && result.backdrop_path ? (
+        <Backdrop
+          bgImage={`https://image.tmdb.org/t/p/original${result.backdrop_path}`}
+        />
+      ) : (
+        <p></p>
+      )}
       <Content>
         <Cover
           bgImage={
@@ -124,6 +160,16 @@ const DetailPresenter = ({ result, loading, error }) =>
             {result.original_title
               ? result.original_title
               : result.original_name}
+            <IMDB
+              href={`https://www.imdb.com/title/${
+                result.hasOwnProperty("imdb_id")
+                  ? result.imdb_id
+                  : result.external_ids.imdb_id
+              }`}
+              target="_blank"
+            >
+              <FontAwesomeIcon icon={faImdb} style={{ color: "gold" }} />
+            </IMDB>
           </Title>
           <ItemContainer>
             <Item>
@@ -133,7 +179,10 @@ const DetailPresenter = ({ result, loading, error }) =>
             </Item>
             <Divider></Divider>
             <Item>
-              {result.runtime ? result.runtime : result.episode_run_time[0]} min
+              {result.hasOwnProperty("runtime")
+                ? result.runtime
+                : result.episode_run_time[0]}{" "}
+              min
             </Item>
             <Divider></Divider>
             <Item>
@@ -149,11 +198,42 @@ const DetailPresenter = ({ result, loading, error }) =>
               <Vote rating={Math.round(result.vote_average / 2)} />
             </VoteContainer>
           </ItemContainer>
-          <Overview>{result.overview}</Overview>
+          <OverviewContainer
+            onClick={() => {
+              setClamp(!clamp);
+            }}
+          >
+            <Overview clamp={clamp}>{result.overview}</Overview>
+            {result && result.overview.length > 180 ? (
+              <OverviewButton clamp={clamp}>
+                <FontAwesomeIcon icon={faCaretDown} />
+              </OverviewButton>
+            ) : (
+              <div />
+            )}
+          </OverviewContainer>
+          <Subtitle>Video</Subtitle>
+          <Video>
+            {result.videos.results[0] ? (
+              <iframe
+                title="video"
+                width="50%"
+                src={`https://www.youtube.com/embed/${result.videos.results[0].key}`}
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            ) : (
+              <FontAwesomeIcon
+                icon={faVideoSlash}
+                style={{ fontSize: "72px", color: "silver" }}
+              />
+            )}
+          </Video>
         </Data>
       </Content>
     </Container>
   );
+};
 
 DetailPresenter.propTypes = {
   result: PropTypes.object,
