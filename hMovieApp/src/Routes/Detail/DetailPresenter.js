@@ -12,6 +12,7 @@ import { faImdb } from "@fortawesome/free-brands-svg-icons";
 import Loader from "../../Components/Loader";
 import Message from "../../Components/Message";
 import Collection from "../../Components/Collection";
+import Season from "../../Components/Season";
 import { useTitle } from "../../Components/useTitle";
 
 const Container = styled.div`
@@ -22,7 +23,7 @@ const Container = styled.div`
 `;
 
 const Backdrop = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -110,18 +111,9 @@ const Video = styled.div`
   }
 `;
 
-const Season = styled.select`
-  width: 250px;
-  height: 30px;
-  border: none;
-  padding: 5px;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.7);
+const SeasonContainer = styled.div`
+  display: flex;
 `;
-
-const EpisodeContainer = styled.div``;
-
-const Episode = styled.div``;
 
 const Vote = ({ rating }) => {
   let rows = [];
@@ -148,7 +140,11 @@ const DetailPresenter = ({ result, loading, error }) => {
       ? titleUpdater("Loading | hMovieApp")
       : titleUpdater(
           `${
-            result.original_title ? result.original_title : result.original_name
+            result
+              ? result.original_title
+                ? result.original_title
+                : result.original_name
+              : "N/A"
           } | hMovieApp`
         );
   }, [loading, result, titleUpdater]);
@@ -244,7 +240,9 @@ const DetailPresenter = ({ result, loading, error }) => {
             <Divider></Divider>
             <Item>
               {result.production_countries
-                ? result.production_countries[0].iso_3166_1
+                ? result.production_countries[0]
+                  ? result.production_countries[0].iso_3166_1
+                  : "N/A"
                 : result.origin_country[0]}
             </Item>
             <Divider></Divider>
@@ -255,6 +253,7 @@ const DetailPresenter = ({ result, loading, error }) => {
             {result.videos.results[0] ? (
               result.videos.results.map((elem) => (
                 <iframe
+                  key={`${elem.id}`}
                   title="video"
                   width="350px"
                   src={`https://www.youtube.com/embed/${elem.key}`}
@@ -279,26 +278,21 @@ const DetailPresenter = ({ result, loading, error }) => {
               />
             </>
           )}
-          {result.seasons ? (
+          {result.seasons && (
             <>
-              <Subtitle>Season / Episode</Subtitle>
-              <Season>
-                {result.seasons.map((i) => (
-                  <option key={i.name} value={i.name}>
-                    {i.name}
-                  </option>
+              <Subtitle>Season</Subtitle>
+              <SeasonContainer>
+                {result.seasons.map((elem) => (
+                  <Season
+                    key={elem.id}
+                    id={result.id}
+                    num={elem.season_number}
+                    title={elem.name}
+                    imageUrl={elem.poster_path}
+                  />
                 ))}
-              </Season>
-              <EpisodeContainer>
-                {result.seasons.map((i) => (
-                  <Episode key={i} value={i.name}>
-                    {i.name}
-                  </Episode>
-                ))}
-              </EpisodeContainer>
+              </SeasonContainer>
             </>
-          ) : (
-            <div />
           )}
         </Data>
       </Content>

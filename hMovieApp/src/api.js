@@ -43,4 +43,5 @@ export const tvApi = {
         query: term,
       },
     }),
+  season: (id, num) => api.get(`tv/${id}/season/${num}`),
 };

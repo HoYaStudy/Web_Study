@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Loader from "../../Components/Loader";
 import Message from "../../Components/Message";
 import Section from "../../Components/Section";
 import Poster from "../../Components/Poster";
-import { useTitle } from "../../Components/useTitle";
 
 const Container = styled.div`
   padding: 20px;
@@ -62,16 +61,8 @@ const Subtitle = styled.div`
   margin-bottom: 10px;
 `;
 
-const CollectionPresenter = ({ result, loading, error }) => {
-  const titleUpdater = useTitle("Loading | hMovieApp");
-
-  useEffect(() => {
-    loading
-      ? titleUpdater("Loading | hMovieApp")
-      : titleUpdater(`${result.name} | hMovieApp`);
-  }, [loading, result, titleUpdater]);
-
-  return loading ? (
+const CollectionPresenter = ({ result, loading, error }) =>
+  loading ? (
     <Loader />
   ) : error ? (
     <Message text={error} color="#e74c3c"></Message>
@@ -95,24 +86,20 @@ const CollectionPresenter = ({ result, loading, error }) => {
         />
         <Data>
           <Overview>{result.overview}</Overview>
-          <Subtitle>Collection List</Subtitle>
-          {result.parts && result.parts.length > 0 && (
-            <Section>
-              {result.parts
-                .sort((a, b) => a["id"] - b["id"])
-                .map((movie) => (
-                  <Poster
-                    key={movie.id}
-                    id={movie.id}
-                    title={movie.original_title}
-                    imageUrl={movie.poster_path}
-                    rating={movie.vote_average}
-                    year={
-                      movie.release_date && movie.release_date.substring(0, 4)
-                    }
-                    isMovie={true}
-                  />
-                ))}
+          <Subtitle>Episode List</Subtitle>
+          {result.episodes && result.episodes.length > 0 && (
+            <Section title="">
+              {result.episodes.map((tv) => (
+                <Poster
+                  key={tv.id}
+                  id={tv.id}
+                  title={tv.name}
+                  imageUrl={tv.still_path}
+                  rating={tv.vote_average}
+                  year={tv.air_date && tv.air_date.substring(0, 4)}
+                  isLink={false}
+                />
+              ))}
             </Section>
           )}
         </Data>
@@ -120,7 +107,6 @@ const CollectionPresenter = ({ result, loading, error }) => {
       {error && <Message text={error} color="#e74c3c" />}
     </Container>
   );
-};
 
 CollectionPresenter.propTypes = {
   result: PropTypes.object,
