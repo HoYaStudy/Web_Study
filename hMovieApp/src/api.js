@@ -24,6 +24,7 @@ export const movieApi = {
         query: term,
       },
     }),
+  collection: (id) => api.get(`collection/${id}`),
 };
 
 export const tvApi = {

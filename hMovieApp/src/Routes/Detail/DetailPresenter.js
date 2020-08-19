@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,6 +11,7 @@ import { faStar as farStar } from "@fortawesome/free-regular-svg-icons";
 import { faImdb } from "@fortawesome/free-brands-svg-icons";
 import Loader from "../../Components/Loader";
 import Message from "../../Components/Message";
+import Collection from "../../Components/Collection";
 import { useTitle } from "../../Components/useTitle";
 
 const Container = styled.div`
@@ -94,7 +95,7 @@ const Overview = styled.p`
 
 const OverviewButton = styled.div`
   transform: ${(props) => (props.clamp ? "rotateX(0deg)" : "rotateX(180deg)")};
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 `;
 
 const Subtitle = styled.div`
@@ -102,7 +103,25 @@ const Subtitle = styled.div`
   font-size: 28px;
 `;
 
-const Video = styled.div``;
+const Video = styled.div`
+  display: flex;
+  & > iframe {
+    margin-right: 20px;
+  }
+`;
+
+const Season = styled.select`
+  width: 250px;
+  height: 30px;
+  border: none;
+  padding: 5px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+`;
+
+const EpisodeContainer = styled.div``;
+
+const Episode = styled.div``;
 
 const Vote = ({ rating }) => {
   let rows = [];
@@ -154,7 +173,7 @@ const DetailPresenter = ({ result, loading, error }) => {
               ? `https://image.tmdb.org/t/p/original${result.poster_path}`
               : require("../../Assets/noPoster.png")
           }
-        ></Cover>
+        />
         <Data>
           <Title>
             {result.original_title
@@ -212,16 +231,37 @@ const DetailPresenter = ({ result, loading, error }) => {
               <div />
             )}
           </OverviewContainer>
+          <ItemContainer>
+            <Item>
+              {result.production_companies[0]
+                ? result.production_companies.map((elem, index) =>
+                    index === result.production_companies.length - 1
+                      ? elem.name
+                      : `${elem.name} / `
+                  )
+                : "N/A"}
+            </Item>
+            <Divider></Divider>
+            <Item>
+              {result.production_countries
+                ? result.production_countries[0].iso_3166_1
+                : result.origin_country[0]}
+            </Item>
+            <Divider></Divider>
+            <Item>{result.status}</Item>
+          </ItemContainer>
           <Subtitle>Video</Subtitle>
           <Video>
             {result.videos.results[0] ? (
-              <iframe
-                title="video"
-                width="50%"
-                src={`https://www.youtube.com/embed/${result.videos.results[0].key}`}
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
+              result.videos.results.map((elem) => (
+                <iframe
+                  title="video"
+                  width="350px"
+                  src={`https://www.youtube.com/embed/${elem.key}`}
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              ))
             ) : (
               <FontAwesomeIcon
                 icon={faVideoSlash}
@@ -229,6 +269,37 @@ const DetailPresenter = ({ result, loading, error }) => {
               />
             )}
           </Video>
+          {result.belongs_to_collection && (
+            <>
+              <Subtitle>Collection</Subtitle>
+              <Collection
+                id={result.belongs_to_collection.id}
+                title={result.belongs_to_collection.name}
+                imageUrl={result.belongs_to_collection.poster_path}
+              />
+            </>
+          )}
+          {result.seasons ? (
+            <>
+              <Subtitle>Season / Episode</Subtitle>
+              <Season>
+                {result.seasons.map((i) => (
+                  <option key={i.name} value={i.name}>
+                    {i.name}
+                  </option>
+                ))}
+              </Season>
+              <EpisodeContainer>
+                {result.seasons.map((i) => (
+                  <Episode key={i} value={i.name}>
+                    {i.name}
+                  </Episode>
+                ))}
+              </EpisodeContainer>
+            </>
+          ) : (
+            <div />
+          )}
         </Data>
       </Content>
     </Container>
