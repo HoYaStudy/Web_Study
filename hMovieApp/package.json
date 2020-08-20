@@ -1,6 +1,7 @@
 {
   "name": "hmovieapp",
   "version": "1.0.0",
+  "homepage": "https://hoyastudy.github.io/Web_Study/portfolio/hMovieApp/",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
