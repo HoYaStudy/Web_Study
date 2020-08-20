@@ -49,8 +49,40 @@ const Year = styled.span`
   color: rgba(255, 255, 255, 0.5);
 `;
 
-const Poster = ({ id, title, imageUrl, rating, year, isMovie = false }) => (
-  <Link to={isMovie ? `/movie/${id}` : `/tv/${id}`}>
+const Poster = ({
+  id,
+  title,
+  imageUrl,
+  rating,
+  year,
+  isMovie = false,
+  isLink = true,
+}) =>
+  isLink ? (
+    <Link to={isMovie ? `/movie/${id}` : `/tv/${id}`}>
+      <Container>
+        <ImageContainer>
+          <Image
+            bgUrl={
+              imageUrl
+                ? `https://image.tmdb.org/t/p/w300${imageUrl}`
+                : require("../Assets/noPoster.png")
+            }
+          />
+          <Rating>
+            <span role="img" aria-label="rating">
+              <FontAwesomeIcon icon={faStar} style={{ color: "gold" }} />
+            </span>{" "}
+            {rating.toPrecision(2)}/10
+          </Rating>
+        </ImageContainer>
+        <Title>
+          {title.length > 18 ? `${title.substring(0, 18)}...` : title}
+        </Title>
+        <Year>{year}</Year>
+      </Container>
+    </Link>
+  ) : (
     <Container>
       <ImageContainer>
         <Image
@@ -64,7 +96,7 @@ const Poster = ({ id, title, imageUrl, rating, year, isMovie = false }) => (
           <span role="img" aria-label="rating">
             <FontAwesomeIcon icon={faStar} style={{ color: "gold" }} />
           </span>{" "}
-          {rating}/10
+          {rating.toPrecision(2)}/10
         </Rating>
       </ImageContainer>
       <Title>
@@ -72,8 +104,7 @@ const Poster = ({ id, title, imageUrl, rating, year, isMovie = false }) => (
       </Title>
       <Year>{year}</Year>
     </Container>
-  </Link>
-);
+  );
 
 Poster.propTypes = {
   id: PropTypes.number.isRequired,

@@ -6,13 +6,6 @@ const api = axios.create({
     api_key: "10923b261ba94d897ac6b81148314a3f",
     language: "en-US",
   },
-  paramsSerializer: function (params) {
-    let myParams = "";
-    for (const item in params) {
-      myParams += `${item}=${params[item]}&`;
-    }
-    return myParams.substring(0, myParams.length - 1);
-  },
 });
 
 export const movieApi = {
@@ -28,9 +21,10 @@ export const movieApi = {
   search: (term) =>
     api.get("search/movie", {
       params: {
-        query: encodeURIComponent(term),
+        query: term,
       },
     }),
+  collection: (id) => api.get(`collection/${id}`),
 };
 
 export const tvApi = {
@@ -40,13 +34,14 @@ export const tvApi = {
   tvDetail: (id) =>
     api.get(`tv/${id}`, {
       params: {
-        append_to_response: "videos",
+        append_to_response: "videos,external_ids",
       },
     }),
   search: (term) =>
     api.get("search/tv", {
       params: {
-        query: encodeURIComponent(term),
+        query: term,
       },
     }),
+  season: (id, num) => api.get(`tv/${id}/season/${num}`),
 };
