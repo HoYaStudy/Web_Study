@@ -2,10 +2,25 @@
 
 This repository is for HoYa's Web study.
 
-## Documents
+## Deploy
 
-- [css](doc/css.md)
-- [nvm](doc/nvm.md)
-- [node](doc/node.md)
-- [npm](doc/npm.md)
-- [yarn](doc/yarn.md)
+[HoYa's Web Study](https://hoyastudy.github.io/Web_Study)
+
+## Project
+
+- Movie App
+  - React
+  - styled-components
+
+## Practice
+
+- Responsive_header
+  - HTML, CSS, JS
+- Youtube (Clone)
+  - HTML, CSS, JS
+- KakaoTalk (Clone)
+  - HTML, CSS
+
+## Reference
+
+[HoYa's Dev Blog](https://hdevstudy.tistory.com/category/Web)
