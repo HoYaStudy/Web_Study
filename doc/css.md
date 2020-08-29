@@ -1,22 +1,17 @@
 # Cascading Style Sheet
 
-## BEM (Block Element Modifier)
+## Blog Link
 
-`id`와 `class`를 섞어쓰면 헷갈리니까 `class`만 쓴다.
-
-Element가 포함관계를 가질 때는 `__`로 이어준다.
-
-Modifier를 가질 경우, `--`로 이어준다.
-
-```css
-/* Example */
-
-.btn {}
-.btn__price {}
-.btn--orange {}
-```
+- [Syntax](https://hdevstudy.tistory.com/2)
+- [BEM](https://hdevstudy.tistory.com/7)
+- [Selector](https://hdevstudy.tistory.com/tag/selector)
+  - [Basic/Grouping Selector](https://hdevstudy.tistory.com/3)
+  - [Combinator](https://hdevstudy.tistory.com/4)
+  - [Pseudo Class/Pseudo Element](https://hdevstudy.tistory.com/6)
+- [Flexbox](https://hdevstudy.tistory.com/10)
 
 ## Reference
 
 - https://flukeout.github.io
 - https://flexboxfroggy.com/
+- https://cssgridgarden.com/
