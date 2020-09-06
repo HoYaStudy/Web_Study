@@ -20,6 +20,8 @@ This repository is for HoYa's Web study.
   - HTML, CSS, JS
 - KakaoTalk (Clone)
   - HTML, CSS
+- Chrome App (Clone)
+  - HTML, CSS, JS
 
 ## Reference
 
