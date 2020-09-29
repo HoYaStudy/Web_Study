@@ -1,5 +1,11 @@
 {
-    "files.exclude": {
-        "**/node_modules": true
-    }
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "files.exclude": {
+    "**/node_modules": true
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

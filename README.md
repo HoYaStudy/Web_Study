@@ -11,6 +11,9 @@ This repository is for HoYa's Web study.
 - Movie App
   - React
   - styled-components
+- Twitter (Clone)
+  - React
+  - Firebase
 
 ## Practice
 
