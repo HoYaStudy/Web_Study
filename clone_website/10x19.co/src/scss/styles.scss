@@ -1,0 +1,61 @@
+@import "reset";
+@import "variables";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-color: $bg;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 0.85fr 7fr 0.85fr;
+  gap: 1px;
+  & > * {
+    color: $bg;
+    background-color: white;
+    font-size: 28px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .menu {
+    grid-column-start: -2;
+  }
+  .center-image {
+    background-image: url("http://10x19.co/staging/wp-content/uploads/2019/12/Gallagher_10-768x768.jpg");
+    background-size: cover;
+    background-position: center;
+    grid-column: 2 / -2;
+    grid-row: 2 / -2;
+  }
+  .number__row {
+    height: 100%;
+    background-color: $bg;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    gap: 1px;
+    .number {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      cursor: pointer;
+      transition: color 0.3s linear, background-color 0.3s linear;
+      &:hover {
+        color: white;
+        background-color: $bg;
+      }
+    }
+  }
+  .scrolling__text {
+    grid-column-start: 2;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}

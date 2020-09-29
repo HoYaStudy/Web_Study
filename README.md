@@ -22,6 +22,9 @@ This repository is for HoYa's Web study.
   - HTML, CSS
 - Chrome App (Clone)
   - HTML, CSS, JS
+- Web Site (Clone)
+  - besthorrorscenes.com
+    - HTML, SCSS, Gulp
 
 ## Reference
 

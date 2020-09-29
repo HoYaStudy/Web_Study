@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Caladea:400&display=swap");
+@import "reset";
+@import "variables";
+@import "titles";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 70px;
+  font-family: "Caladea";
+  & > *:not(.footer) {
+    padding: 0px 140px;
+  }
+}
+
+a {
+  @extend %miniTitle;
+  color: inherit;
+  text-decoration: none;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  padding: 0px 140px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    ul {
+      display: flex;
+      font-size: 10px;
+      text-transform: uppercase;
+      &:first-child {
+        li {
+          margin-right: 60px;
+          @extend %miniTitle;
+        }
+      }
+    }
+  }
+}
+
+.hero {
+  height: 780px;
+  margin: 0px $sideSpace;
+  margin-bottom: 80px;
+  color: black;
+  background-image: url("https://cdn.shopify.com/s/files/1/0086/4865/4895/files/06_FullCollection_0064_1280x743_crop_center.jpeg?v=1599087320");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h4 {
+    @extend %miniTitle;
+    margin-bottom: 30px;
+  }
+  h3 {
+    width: 480px;
+    margin-bottom: 50px;
+    font-size: 48px;
+    text-align: center;
+  }
+  a {
+    @extend %miniTitle;
+    width: 200px;
+    border: 2px solid black;
+    padding: 20px 0px;
+    color: black;
+    background-color: transparent;
+    text-align: center;
+    transition: color 0.3s linear, background 0.3s linear;
+    &:hover {
+      color: white;
+      background-color: black;
+    }
+  }
+}
+
+.under-hero {
+  width: 100%;
+  height: 710px;
+  margin-bottom: 80px;
+  display: flex;
+  .under-hero__content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $bg;
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      h4 {
+        @extend %miniTitle;
+        margin-bottom: 30px;
+      }
+      h3 {
+        margin-bottom: 50px;
+        font-size: 30px;
+        text-align: center;
+      }
+      a {
+        padding: 20px;
+        border: 1px solid black;
+        transition: color 0.3s linear, background 0.3s linear;
+        &:hover {
+          color: white;
+          background-color: black;
+        }
+      }
+    }
+  }
+  img,
+  div {
+    width: 50%;
+  }
+}
+
+.blog {
+  width: 100%;
+  margin-bottom: 80px;
+  padding: 0px $sideSpace;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 480px);
+  .blog__post {
+    background-color: $bg;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    &:nth-child(even) {
+      img {
+        order: 1;
+      }
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    .post__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .post__date {
+        @extend %miniTitle;
+        margin-bottom: 70px;
+      }
+      h4 {
+        font-size: 32px;
+        margin-bottom: 40px;
+      }
+    }
+  }
+}
+
+.gallery {
+  margin-bottom: 80px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 360px);
+  .gallery__poster {
+    height: 100%;
+    img {
+      max-width: 100%;
+      height: 100%;
+      transform: opacity 0.3s linear;
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+}
+
+.footer {
+  padding: 65px 0px 50px 0px;
+  background-color: $bg;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  .footer__column {
+    @extend %miniTitle;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .column__title {
+      margin-bottom: 35px;
+      opacity: 0.6;
+    }
+    ul {
+      text-align: center;
+      li {
+        margin-bottom: 15px;
+      }
+    }
+    &:nth-child(2) {
+      border-right: 1px solid black;
+      border-left: 1px solid black;
+    }
+  }
+}
