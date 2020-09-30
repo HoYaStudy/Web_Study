@@ -104,6 +104,7 @@ form {
 }
 
 .factoryInput__input {
+  box-sizing: border-box;
   flex-grow: 1;
   height: 40px;
   padding: 0px 20px;
