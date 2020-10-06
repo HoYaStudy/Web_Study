@@ -1,0 +1,75 @@
+POST http://localhost:3000/contact HTTP/1.1
+content-type: application/json
+
+{
+  "name": "hoya",
+  "email": [
+    "abc@example.com"
+  ]
+}
+
+###
+POST http://localhost:3000/contact HTTP/1.1
+content-type: application/json
+
+{
+  "name": "park",
+  "email": [
+    "def@example.com"
+  ]
+}
+
+###
+POST http://localhost:3000/contact HTTP/1.1
+content-type: application/json
+
+{
+  "name": 1
+}
+
+###
+Get http://localhost:3000/contact HTTP/1.1
+
+###
+Get http://localhost:3000/contact/2 HTTP/1.1
+
+###
+Get http://localhost:3000/contact/search?name=hoya HTTP/1.1
+
+###
+PUT http://localhost:3000/contact HTTP/1.1
+content-type: application/json
+
+[
+  {
+    "name": "kim",
+    "email": [
+      "ghi@example.com"
+    ]
+  },
+  {
+    "name": "lee",
+    "email": [
+      "jkl@example.com"
+    ]
+  }
+]
+
+###
+PATCH http://localhost:3000/contact/2 HTTP/1.1
+content-type: application/json
+
+{
+  "age": 30
+}
+
+###
+PATCH http://localhost:3000/contact/2 HTTP/1.1
+content-type: application/json
+
+{
+  "name": 30
+}
+
+###
+DELETE http://localhost:3000/contact/2 HTTP/1.1
