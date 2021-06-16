@@ -41,6 +41,10 @@ body {
   font-weight: 600;
 }
 
+#todo-form {
+  margin-top: 2rem;
+}
+
 #todo-form input {
   padding: 0.2rem 0.4rem;
 }
