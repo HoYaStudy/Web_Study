@@ -1,4 +1,5 @@
-const weather = document.querySelector(".js-weather");
+const weatherTemperature = document.querySelector("#weather-temperature");
+const weatherLocation = document.querySelector("#weather-location");
 
 const LS_COORDS = "coords";
 const API_KEY = "241051bf13976dd3ddf8b8d9f247255e";
@@ -7,22 +8,23 @@ const getWeather = (lat, lon) => {
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
   )
-    .then(response => {
+    .then((response) => {
       return response.json();
     })
-    .then(json => {
+    .then((json) => {
       const temperature = json.main.temp;
       const place = json.name;
-      weather.innerText = `${temperature} @${place}`;
+      weatherTemperature.innerText = `${temperature}℃`;
+      weatherLocation.innerText = `@${place}`;
     });
 };
 
-const handleGeoSuccess = pos => {
+const handleGeoSuccess = (pos) => {
   const latitude = pos.coords.latitude;
   const longitude = pos.coords.longitude;
   const coordsObj = {
     latitude,
-    longitude
+    longitude,
   };
   saveCoords(coordsObj);
   getWeather(latitude, longitude);
@@ -34,7 +36,7 @@ const askForCoords = () => {
   navigator.geolocation.getCurrentPosition(handleGeoSuccess, handleGeoError);
 };
 
-const saveCoords = coordsObj => {
+const saveCoords = (coordsObj) => {
   localStorage.setItem(LS_COORDS, JSON.stringify(coordsObj));
 };
 
