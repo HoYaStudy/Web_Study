@@ -1,27 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="utf-8"/>
-	<title>VanillaJS</title>
-	<link rel="stylesheet" href="index.css"/>
+	<meta charset="utf-8" />
+
+	<link rel="stylesheet" href="css/style.css" />
+
+	<script defer src="js/bg.js"></script>
+	<script defer src="js/greetings.js"></script>
+	<script defer src="js/clock.js"></script>
+	<script defer src="js/todo.js"></script>
+	<script defer src="js/quote.js"></script>
+	<script defer src="js/weather.js"></script>
+
+	<title>Momentum (Clone)</title>
 </head>
+
 <body>
-	<div class="js-clock">
-		<h1>00:00:00</h1>
+	<div id="container">
+		<!-- Greetings -->
+		<form id="login-form" class="hidden">
+			<input type="text" placeholder="What is your name?" required maxlength="16" />
+			<input type="submit" value="Log In" />
+		</form>
+		<h1 id="greeting" class="hidden"></h1>
+
+		<!-- Clock -->
+		<div id="clock">
+			<span id="clock-date"></span>
+			<span id="clock-time"></span>
+		</div>
+
+		<!-- ToDo -->
+		<form id="todo-form">
+			<input type="text" placeholder="Write a to do" />
+		</form>
+		<ul id="todo-list"></ul>
+
+		<!-- Weather -->
+		<div id="weather">
+			<span id="weather-temperature"></span>
+			<span id="weather-location"></span>
+		</div>
+
+		<!-- Quote -->
+		<div id="quote">
+			<div id="quote-qod"></div>
+			<div id="quote-author"></div>
+		</div>
 	</div>
-	<form class="js-greetingForm form">
-		<input type="text" placeholder="What is your name?"/>
-	</form>
-	<h4 class="js-greeting greeting"></h4>
-	<form class="js-toDoForm">
-		<input type="text" placeholder="Write a to do" />
-	</form>
-	<ul class="js-toDoList"></ul>
-	<span class="js-weather"></span>
-	<script src="clock.js"></script>
-	<script src="greeting.js"></script>
-	<script src="todo.js"></script>
-	<script src="bg.js"></script>
-	<script src="weather.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,114 @@
+body {
+  color: #ccc;
+  background-color: #2c3e50;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+#container {
+  height: calc(100vh - 16px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#greeting {
+  color: #009688;
+  background: transparent;
+  font-size: 8em;
+}
+
+.hidden {
+  display: none;
+}
+
+#clock {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+}
+
+#clock-date {
+  margin-right: 2rem;
+  color: #ff9800;
+  font-size: 1.25rem;
+}
+
+#clock-time {
+  color: #cddc39;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+#todo-form input {
+  padding: 0.2rem 0.4rem;
+}
+
+#todo-list li {
+  margin-bottom: 0.25rem;
+}
+
+#todo-list li span {
+  margin-right: 1rem;
+  color: #2196f3;
+}
+
+button {
+  border: none;
+  background: none;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+#weather {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  color: #9c27b0;
+}
+
+#weather-temperature {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+#weather-location {
+  margin-left: 1rem;
+  font-size: 1rem;
+}
+
+#quote {
+  position: fixed;
+  bottom: 1rem;
+}
+
+#quote-qod {
+  color: #f44336;
+  text-align: center;
+}
+
+#quote-author {
+  margin-top: 0.5rem;
+  color: #ff7961;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.bgImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  animation: fadeIn 0.5s linear;
+}
