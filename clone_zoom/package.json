@@ -1,6 +1,6 @@
 {
   "name": "clone_zoom",
-  "description": "ZOOM clone coding using WebRTC and WebSockets",
+  "description": "ZOOM clone coding using WebRTC and WebSocket",
   "version": "1.0.0",
   "scripts": {
     "dev": "nodemon"
@@ -14,7 +14,8 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "pug": "^3.0.2"
+    "pug": "^3.0.2",
+    "ws": "^8.2.2"
   },
   "license": "MIT"
 }
