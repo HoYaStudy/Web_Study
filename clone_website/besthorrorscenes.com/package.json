@@ -11,7 +11,7 @@
     "gulp-image": "^6.2.1",
     "gulp-sass": "^4.1.0",
     "gulp-webserver": "^0.9.1",
-    "node-sass": "^4.14.1"
+    "node-sass": "^7.0.0"
   },
   "license": "MIT"
 }
